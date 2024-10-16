@@ -33,3 +33,28 @@ const String kMatchPassError = "Passwords don't match";
 const String kNameNullError = "Please enter your name";
 const String kNumberNullError = "Please enter your phone number";
 const String kAddressNullError = "Please enter your address";
+
+// otp style
+final otpDecoration = InputDecoration(
+  contentPadding: EdgeInsets.symmetric(vertical: getPropScreenWidth(15)),
+  enabledBorder: otpOutlineInputBorder(),
+  focusedBorder: otpOutlineInputBorder(),
+  border: otpOutlineInputBorder()
+);
+
+OutlineInputBorder otpOutlineInputBorder() {
+  return OutlineInputBorder(
+    borderRadius: BorderRadius.circular(15),
+    borderSide: const BorderSide(color: kTextColor)
+  );
+}
+
+const defaultDuration = Duration(milliseconds: 250);
+
+TextStyle seeMoreStyle = TextStyle(
+  fontSize: getPropScreenWidth(16),
+  fontWeight: FontWeight.bold,
+  color: kPrimaryColor
+);
+
+const inActiveIconColor = Color(0xffb6b6b6);

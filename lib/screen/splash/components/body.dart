@@ -60,9 +60,9 @@ class _BodyState extends State<Body> {
                     ),
                     const Spacer(flex: 3),
                      MyDefaultButton(
-                      press:currentPage==2? (){
-                        Navigator.pushNamed(context, SignInScreen.routeName);
-                      }:null,
+                      press: currentPage == 2 ? (){
+                        Navigator.pushReplacementNamed(context, SignInScreen.routeName);
+                      } : null,
                       text: currentPage == 2 ? "Get Started" : "Swipe right",
                     ),
                     const Spacer()
@@ -83,7 +83,7 @@ class _BodyState extends State<Body> {
       height: 6,
       width: currentPage==index?20:6,
       decoration: BoxDecoration(
-          color: currentPage == index ? kPrimaryColor:Color(0xffd8d8d8),
+          color: currentPage == index ? kPrimaryColor :const Color(0xffd8d8d8),
           borderRadius: BorderRadius.circular(3)
       ),
     );

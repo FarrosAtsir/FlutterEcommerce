@@ -1,4 +1,5 @@
 import 'package:ecommerce/components/my_default_button.dart';
+import 'package:ecommerce/screen/home/home_screen.dart';
 import 'package:ecommerce/size_config.dart';
 import 'package:flutter/material.dart';
 
@@ -28,7 +29,7 @@ class Body extends StatelessWidget {
             child: MyDefaultButton(
               text: "Back To Home", 
               press: (){
-                Navigator.pop(context);
+                Navigator.pushNamed(context, HomeScreen.routeName);
               }
             ),
           ),

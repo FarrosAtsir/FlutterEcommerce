@@ -12,7 +12,7 @@ class SignInScreen extends StatelessWidget {
         title: const Text("Sign In"),
         centerTitle: true,
       ),
-      body: Body(),
+      body: const Body(),
     );
   }
 }
