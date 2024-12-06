@@ -19,7 +19,7 @@ Future<void> main() async {
   bool isLoggedIn = prefs.getBool("isLoggedIn") ?? false;
   runApp(
     DevicePreview(
-      enabled: !kReleaseMode,
+      enabled: true,
       builder: (context) {
         return MultiProvider(
           providers: [
