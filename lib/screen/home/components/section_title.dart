@@ -17,7 +17,6 @@ class SectionTitle extends StatelessWidget {
           title,
           style: TextStyle(
             fontSize: getPropScreenWidth(18),
-            color: Colors.black
           ),
         ),
         const Text(

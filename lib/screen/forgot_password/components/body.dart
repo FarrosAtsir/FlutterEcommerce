@@ -21,7 +21,6 @@ class Body extends StatelessWidget {
                 "Forgot Password",
                 style: TextStyle(
                   fontSize: getPropScreenWidth(28),
-                  color: Colors.black
                 ),
               ),
               const Text(

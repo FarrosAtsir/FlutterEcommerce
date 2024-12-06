@@ -1,7 +1,9 @@
 import 'package:ecommerce/model/cart.dart';
 import 'package:ecommerce/screen/cart/components/body.dart';
 import 'package:ecommerce/screen/cart/components/card_bottom_navigation.dart';
+import 'package:ecommerce/state_managements/cart_provider.dart';
 import 'package:flutter/material.dart';
+import 'package:provider/provider.dart';
 
 class CartScreen extends StatelessWidget {
   static String routeName = "/cart";
@@ -30,12 +32,15 @@ class CartScreen extends StatelessWidget {
             "Your Cart",
             style: TextStyle(
               fontWeight: FontWeight.bold,
-              color: Colors.black
             ),
           ),
-          Text(
-            "${listCart.length} items",
-            style: Theme.of(context).textTheme.bodySmall,
+          Consumer<CartProvider>(
+            builder: (context, cart, child) {
+              return Text(
+                "${cart.cartItems.length} items",
+                style: Theme.of(context).textTheme.bodySmall,
+              );
+            }
           )
         ],
       ),

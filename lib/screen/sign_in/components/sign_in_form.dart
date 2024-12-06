@@ -5,7 +5,9 @@ import 'package:ecommerce/constant.dart';
 import 'package:ecommerce/screen/forgot_password/forgot_password_screen.dart';
 import 'package:ecommerce/screen/login_success/login_success_screen.dart';
 import 'package:ecommerce/size_config.dart';
+import 'package:ecommerce/state_managements/auth_provider.dart';
 import 'package:flutter/material.dart';
+import 'package:provider/provider.dart';
 
 class SignInForm extends StatefulWidget {
   const SignInForm({super.key});
@@ -41,6 +43,7 @@ class _SignInFormState extends State<SignInForm> {
                 _formKey.currentState!.save();
               }
               if (errors.isEmpty) {
+                Provider.of<AuthProvider>(context, listen: false).setAuth(true, email: email);
                 Navigator.pushNamed(context, LoginSuccessScreen.routeName);
               }
             }

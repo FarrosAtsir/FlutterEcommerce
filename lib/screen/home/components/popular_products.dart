@@ -3,7 +3,9 @@ import 'package:ecommerce/model/products.dart';
 import 'package:ecommerce/screen/detail/detail_screen.dart';
 import 'package:ecommerce/screen/home/components/section_title.dart';
 import 'package:ecommerce/size_config.dart';
+import 'package:ecommerce/state_managements/favourite_provider.dart';
 import 'package:flutter/material.dart';
+import 'package:provider/provider.dart';
 
 class PopularProducts extends StatelessWidget {
   const PopularProducts({
@@ -25,21 +27,25 @@ class PopularProducts extends StatelessWidget {
             height: getPropScreenWidth(220),
             child: Padding(
               padding: EdgeInsets.symmetric(horizontal: getPropScreenWidth(10)),
-              child: Row(
-                children: List.generate(
-                  demoProducts.length, 
-                  (index){
-                    final Product product = demoProducts[index];
-                    return ItemPopularProduct(
-                      product: product,
-                      press: () => Navigator.pushNamed(
-                        context, 
-                        DetailScreen.routeName, 
-                        arguments: product
-                      ),
-                    );
-                  }
-                )
+              child: Consumer<FavouriteProvider>(
+                builder: (context, fav, child) {
+                  return Row(
+                    children: List.generate(
+                      fav.listProducts.length, 
+                      (index){
+                        final Product product = fav.listProducts[index];
+                        return ItemPopularProduct(
+                          product: product,
+                          press: () => Navigator.pushNamed(
+                            context, 
+                            DetailScreen.routeName, 
+                            arguments: product
+                          ),
+                        );
+                      }
+                    )
+                  );
+                }
               ),
             ),
           ),

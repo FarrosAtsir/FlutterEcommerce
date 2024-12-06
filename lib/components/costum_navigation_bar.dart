@@ -1,5 +1,6 @@
 import 'package:ecommerce/constant.dart';
 import 'package:ecommerce/enums.dart';
+import 'package:ecommerce/screen/favourite/favourite_screen.dart';
 import 'package:ecommerce/screen/home/home_screen.dart';
 import 'package:ecommerce/screen/profile/profile_screen.dart';
 import 'package:ecommerce/size_config.dart';
@@ -55,9 +56,24 @@ class CostumNavigatoinBar extends StatelessWidget {
               )
             ),
           ),
-          IconButton(
-            onPressed: (){}, 
-            icon: SvgPicture.asset("assets/icons/Heart Icon.svg")
+          Container(
+            decoration: BoxDecoration(
+              color: MenuState.favorite == menu 
+              ? kPrimaryColor.withOpacity(0.5)
+              : Colors.transparent,
+              shape: BoxShape.circle
+            ),
+            child: IconButton(
+              onPressed: (){
+                Navigator.pushNamed(context, FavouriteScreen.routeName);
+              }, 
+              icon: SvgPicture.asset(
+                "assets/icons/Heart Icon.svg",
+                color: MenuState.favorite == menu 
+                  ? Colors.white
+                  : inActiveIconColor,
+              )
+            ),
           ),
           IconButton(
             onPressed: (){}, 

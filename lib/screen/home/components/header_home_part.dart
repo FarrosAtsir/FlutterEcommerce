@@ -3,7 +3,9 @@ import 'package:ecommerce/screen/cart/cart_screen.dart';
 import 'package:ecommerce/screen/home/components/banner_discount.dart';
 import 'package:ecommerce/screen/home/components/icon_with_trigger.dart';
 import 'package:ecommerce/size_config.dart';
+import 'package:ecommerce/state_managements/cart_provider.dart';
 import 'package:flutter/material.dart';
+import 'package:provider/provider.dart';
 
 class HeaderHomePart extends StatelessWidget {
   const HeaderHomePart({
@@ -24,9 +26,13 @@ class HeaderHomePart extends StatelessWidget {
             onTap: (){
               Navigator.pushNamed(context, CartScreen.routeName);
             },
-            child: IconWithTrigger(
-              svgIcon: "assets/icons/Cart Icon.svg",
-              trigger: listCart.length.toString()
+            child: Consumer<CartProvider>(
+              builder: (context, cart, child) {
+                return IconWithTrigger(
+                  svgIcon: "assets/icons/Cart Icon.svg",
+                  trigger: cart.cartItems.length.toString()
+                );
+              }
             ),
           ),
           const IconWithTrigger(

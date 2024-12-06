@@ -1,6 +1,8 @@
 import 'package:ecommerce/constant.dart';
 import 'package:ecommerce/size_config.dart';
 import 'package:flutter/material.dart';
+import 'package:provider/provider.dart';
+import 'package:ecommerce/state_managements/product_provider.dart';
 
 class BannerDiscount extends StatelessWidget {
   const BannerDiscount({
@@ -50,6 +52,7 @@ class SearchField extends StatelessWidget {
 
   @override
   Widget build(BuildContext context) {
+    final searchProvider = Provider.of<ProductProvider>(context, listen: false);
     return Container(
       width: SizeConfig.screenWidth*0.6,
       decoration: BoxDecoration(
@@ -57,9 +60,7 @@ class SearchField extends StatelessWidget {
         borderRadius: BorderRadius.circular(15)
       ),
       child: TextFormField(
-        onChanged: (value) {
-          // do something
-        },
+        onChanged: (value) => searchProvider.searchProducts(value),
         decoration: InputDecoration(
           contentPadding: EdgeInsets.symmetric(
             horizontal: getPropScreenWidth(20),

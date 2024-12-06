@@ -1,10 +1,10 @@
-import 'package:ecommerce/routes.dart';
-import 'package:ecommerce/screen/login_success/login_success_screen.dart';
 import 'package:ecommerce/screen/profile/components/item_button_profile.dart';
 import 'package:ecommerce/screen/profile/components/profile_picture.dart';
 import 'package:ecommerce/screen/sign_in/sign_in_screen.dart';
 import 'package:ecommerce/size_config.dart';
+import 'package:ecommerce/state_managements/auth_provider.dart';
 import 'package:flutter/material.dart';
+import 'package:provider/provider.dart';
 
 class Body extends StatelessWidget {
   const Body({super.key});
@@ -16,6 +16,18 @@ class Body extends StatelessWidget {
       child: Column(
         children: [
           const ProfilePicture(),
+          SizedBox(height: getPropScreenWidth(20)),
+          Consumer<AuthProvider>(
+            builder: (context, auth, child){
+              return Text(
+                auth.email ?? "",
+                style: TextStyle(
+                  fontSize: getPropScreenWidth(16),
+                  fontWeight: FontWeight.bold,
+                ),
+              );
+            }
+          ),
           SizedBox(height: getPropScreenWidth(20)),
           Column(
             children: [
@@ -43,6 +55,7 @@ class Body extends StatelessWidget {
                 svgIcon: "assets/icons/Log out.svg", 
                 title: "Log Out", 
                 press: (){
+                  Provider.of<AuthProvider>(context, listen: false).setAuth(false);
                   Navigator.pushNamedAndRemoveUntil(
                     context, 
                     SignInScreen.routeName,

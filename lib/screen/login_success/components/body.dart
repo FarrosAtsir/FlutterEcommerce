@@ -20,7 +20,6 @@ class Body extends StatelessWidget {
             style: TextStyle(
               fontSize: getPropScreenWidth(30),
               fontWeight: FontWeight.bold,
-              color: Colors.black
             ),
           ),
           const Spacer(),

@@ -1,6 +1,7 @@
 import 'package:ecommerce/components/costum_navigation_bar.dart';
 import 'package:ecommerce/enums.dart';
 import 'package:ecommerce/screen/home/components/body.dart';
+import 'package:ecommerce/size_config.dart';
 import 'package:flutter/material.dart';
 
 class HomeScreen extends StatelessWidget {
@@ -9,6 +10,7 @@ class HomeScreen extends StatelessWidget {
 
   @override
   Widget build(BuildContext context) {
+    SizeConfig().init(context);
     return const Scaffold(
       body: Body(),
       bottomNavigationBar: CostumNavigatoinBar(menu: MenuState.home),

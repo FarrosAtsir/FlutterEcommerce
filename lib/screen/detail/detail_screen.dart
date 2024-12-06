@@ -43,7 +43,7 @@ class DetailScreen extends StatelessWidget {
           )
         ],
       ),
-      body: Body(product: product,),
+      body: Body(product: product)
     );
   }
 }

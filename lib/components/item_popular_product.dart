@@ -37,7 +37,6 @@ class ItemPopularProduct extends StatelessWidget {
               SizedBox(height: getPropScreenWidth(15)),
               Text(
                 product.title,
-                style: const TextStyle(color: Colors.black),
               ),
               const Spacer(),
               Row(

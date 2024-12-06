@@ -29,7 +29,6 @@ class _BodyState extends State<Body> {
                   "Welcome Back!",
                   style: TextStyle(
                     fontSize: getPropScreenWidth(28),
-                    color: Colors.black,
                     fontWeight: FontWeight.bold
                   ),
                 ),

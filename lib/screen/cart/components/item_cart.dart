@@ -25,7 +25,7 @@ class ItemCart extends StatelessWidget {
                 borderRadius: BorderRadius.circular(20),
                 color: kSecondaryColor.withOpacity(0.1)
               ),
-              child: Image.asset(cart.product.images[0]),
+              child: Image.asset(cart.product.images[0])
             ),
           ),
         ),
@@ -36,7 +36,6 @@ class ItemCart extends StatelessWidget {
           children: [
             Text(
               cart.product.title,
-              style: const TextStyle(color: Colors.black),
             ),
             SizedBox(height: getPropScreenWidth(10)),
             Text.rich(

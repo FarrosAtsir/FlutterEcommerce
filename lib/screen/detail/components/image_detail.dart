@@ -62,7 +62,6 @@ class _ImageDetailState extends State<ImageDetail> {
           border: Border.all(
             color: kPrimaryColor.withOpacity(currentIndex == index ? 1 : 0)
           ),
-          color: Colors.white
         ),
         child: Image.asset(widget.product.images[index]),
       ),
